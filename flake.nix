@@ -72,8 +72,8 @@
            "gnu-getopt"
            "gnu-sed"
            "gnu-tar"
-           "pre-commit"
            "poetry"
+           "pre-commit"
            "pulumi/tap/pulumi"
            "python@3.10"
          ];
@@ -82,8 +82,8 @@
           "1password"
           "1password-cli"
           "balenaetcher"
-          "docker"
           "dbeaver-community"
+          "docker"
           "gimp"
           "openemu"
           "rustdesk"
@@ -139,8 +139,6 @@
     };
   in
   {
-    # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#mac-10
     darwinConfigurations."mac-10" = nix-darwin.lib.darwinSystem {
       modules = [
         configuration
