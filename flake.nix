@@ -55,6 +55,7 @@
           pkgs.nodejs_22
           pkgs.odin
           pkgs.oh-my-zsh
+          pkgs.pstree
           pkgs.rustc
           pkgs.rustup
           pkgs.slack
