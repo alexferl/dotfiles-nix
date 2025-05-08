@@ -75,6 +75,7 @@
         export PATH="/opt/homebrew/opt/gnu-getopt/bin:$PATH"
         export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
         export PATH="/opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH"
+        export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
       '';
 
       homebrew = {
@@ -84,6 +85,7 @@
            "gnu-getopt"
            "gnu-sed"
            "gnu-tar"
+           "libpq"
            "poetry"
            "pre-commit"
            "pulumi/tap/pulumi"
