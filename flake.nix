@@ -54,6 +54,7 @@
           pkgs.neovim
           pkgs.nodejs_22
           pkgs.odin
+          pkgs.oh-my-zsh
           pkgs.rustc
           pkgs.rustup
           pkgs.slack
@@ -62,8 +63,18 @@
           pkgs.uv
           pkgs.vim
           pkgs.vlc-bin
-          pkgs.wget
         ];
+
+      environment.shellAliases = {
+        rebuild = "darwin-rebuild switch --flake ~/dev/nix/dotfiles-nix#mac-10";
+      };
+
+      environment.extraInit = ''
+        # Add GNU utils to PATH
+        export PATH="/opt/homebrew/opt/gnu-getopt/bin:$PATH"
+        export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+        export PATH="/opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH"
+      '';
 
       homebrew = {
         enable = true;
@@ -107,7 +118,10 @@
       nixpkgs.hostPlatform = "aarch64-darwin";
 
       # Create /etc/zshrc that loads the nix-darwin environment.
-      programs.zsh.enable = true;
+      programs.zsh = {
+        enableCompletion = true;
+        enableSyntaxHighlighting = true;
+      };
 
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
