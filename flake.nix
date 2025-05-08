@@ -145,7 +145,7 @@
 
         NSGlobalDomain."com.apple.sound.beep.volume" = 0.0;
         NSGlobalDomain.AppleInterfaceStyle = "Dark";
-        NSGlobalDomain.ApplePressAndHoldEnabled = true;
+        NSGlobalDomain.ApplePressAndHoldEnabled = false;
         NSGlobalDomain.InitialKeyRepeat = 15;
         NSGlobalDomain.KeyRepeat = 2;
 
