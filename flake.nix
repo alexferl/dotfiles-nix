@@ -5,7 +5,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    mac-app-util.url = "github:hraban/mac-app-util";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
@@ -29,54 +28,55 @@
     };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, mac-app-util, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, homebrew-services, pulumi-tap }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, homebrew-services, pulumi-tap }:
   let
     configuration = { pkgs, ... }: {
-       fonts.packages = [
-         pkgs.nerd-fonts.hack
-       ];
+      environment = {
+        darwinConfig = "~/dev/nix/dotfiles-nix/flake.nix";
 
-      environment.systemPackages =
-        [
-          pkgs.curl
-          pkgs.go
-          pkgs.golangci-lint
-          pkgs.google-chrome
-          (pkgs.google-cloud-sdk.withExtraComponents [
-            pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin
-          ])
-          pkgs.htop
-          pkgs.httpie
-          pkgs.iterm2
-          pkgs.jetbrains-toolbox
-          pkgs.jq
-          pkgs.karabiner-elements
-          pkgs.neovim
-          pkgs.nodejs_22
-          pkgs.odin
-          pkgs.oh-my-zsh
-          pkgs.pstree
-          pkgs.rustc
-          pkgs.rustup
-          pkgs.slack
-          pkgs.ssh-copy-id
-          pkgs.tree
-          pkgs.uv
-          pkgs.vim
-          pkgs.vlc-bin
+        extraInit = ''
+          source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+          source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+        '';
+
+        shellAliases = {
+          rebuild = "darwin-rebuild switch";
+        };
+
+        systemPath = [
+          # GNU utils
+          "/opt/homebrew/opt/gnu-getopt/bin"
+          "/opt/homebrew/opt/gnu-sed/libexec/gnubin"
+          "/opt/homebrew/opt/gnu-tar/libexec/gnubin"
+          # PostgreSQL utils
+          "/opt/homebrew/opt/libpq/bin"
         ];
 
-      environment.shellAliases = {
-        rebuild = "darwin-rebuild switch --flake ~/dev/nix/dotfiles-nix#mac-10";
+        systemPackages =
+          [
+            pkgs.curl
+            pkgs.go
+            pkgs.golangci-lint
+            pkgs.htop
+            pkgs.httpie
+            pkgs.jq
+            pkgs.neovim
+            pkgs.nodejs_22
+            pkgs.odin
+            pkgs.oh-my-zsh
+            pkgs.pstree
+            pkgs.rustc
+            pkgs.rustup
+            pkgs.ssh-copy-id
+            pkgs.tree
+            pkgs.uv
+            pkgs.vim
+          ];
       };
 
-      environment.extraInit = ''
-        # Add GNU utils to PATH
-        export PATH="/opt/homebrew/opt/gnu-getopt/bin:$PATH"
-        export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
-        export PATH="/opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH"
-        export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-      '';
+      fonts.packages = [
+        pkgs.nerd-fonts.hack
+      ];
 
       homebrew = {
         enable = true;
@@ -99,12 +99,19 @@
           "dbeaver-community"
           "docker"
           "gimp"
+          "google-chrome"
+          "google-cloud-sdk"
+          "iterm2"
+          "jetbrains-toolbox"
+          "karabiner-elements"
           "openemu"
           "rustdesk"
           "signal"
+          "slack"
           "steam"
           "tidal"
           "twingate"
+          "vlc"
         ];
 
         onActivation.cleanup = "zap";
@@ -125,6 +132,9 @@
         enableCompletion = true;
         enableSyntaxHighlighting = true;
       };
+
+      # Enable fingerprint authentication for sudo commands
+      security.pam.services.sudo_local.touchIdAuth = true;
 
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
@@ -159,7 +169,6 @@
     darwinConfigurations."mac-10" = nix-darwin.lib.darwinSystem {
       modules = [
         configuration
-        mac-app-util.darwinModules.default
         nix-homebrew.darwinModules.nix-homebrew
         {
           nix-homebrew = {
