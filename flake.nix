@@ -37,6 +37,11 @@
           source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
         '';
 
+        shellAliases = {
+          vi = "nvim";
+          vim = "nvim";
+        };
+
         systemPath = [
           # GNU utils
           "/opt/homebrew/opt/gnu-getopt/bin"
@@ -45,6 +50,10 @@
           # PostgreSQL utils
           "/opt/homebrew/opt/libpq/bin"
         ];
+
+        variables = {
+          KUBE_EDITOR = "nvim";
+        };
 
         systemPackages =
           [
@@ -63,7 +72,6 @@
             pkgs.ssh-copy-id
             pkgs.tree
             pkgs.uv
-            pkgs.vim
           ];
       };
 
