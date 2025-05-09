@@ -32,16 +32,10 @@
   let
     configuration = { pkgs, ... }: {
       environment = {
-        darwinConfig = "~/dev/nix/dotfiles-nix/flake.nix";
-
         extraInit = ''
           source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
           source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
         '';
-
-        shellAliases = {
-          rebuild = "darwin-rebuild switch";
-        };
 
         systemPath = [
           # GNU utils
@@ -66,8 +60,6 @@
             pkgs.odin
             pkgs.oh-my-zsh
             pkgs.pstree
-            pkgs.rustc
-            pkgs.rustup
             pkgs.ssh-copy-id
             pkgs.tree
             pkgs.uv
@@ -91,6 +83,7 @@
            "pre-commit"
            "pulumi/tap/pulumi"
            "python@3.10"
+           "rust"
          ];
 
         casks = [
