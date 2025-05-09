@@ -61,6 +61,7 @@
             pkgs.httpie
             pkgs.jq
             pkgs.neovim
+            pkgs.neofetch
             pkgs.nodejs_22
             pkgs.odin
             pkgs.oh-my-zsh
@@ -152,6 +153,7 @@
 
         finder.AppleShowAllExtensions = true;
         finder.FXPreferredViewStyle = "Nlsv"; # list view. https://macos-defaults.com/finder/fxpreferredviewstyle.html
+        finder.ShowPathbar = true; # Show path bar in Finder
 
         loginwindow.GuestEnabled  = false;
 
