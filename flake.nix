@@ -114,6 +114,7 @@
           "tidal"
           "twingate"
           "vlc"
+          "yaak"
         ];
 
         onActivation.cleanup = "zap";
