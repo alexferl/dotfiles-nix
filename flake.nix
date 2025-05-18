@@ -107,6 +107,7 @@
           "jetbrains-toolbox"
           "karabiner-elements"
           "openemu"
+          "raspberry-pi-imager"
           "rustdesk"
           "signal"
           "slack"
