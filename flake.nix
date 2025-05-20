@@ -92,6 +92,7 @@
            "pulumi/tap/pulumi"
            "python@3.10"
            "rust"
+           "watch"
          ];
 
         casks = [

@@ -12,13 +12,13 @@ help:
 	@echo "	Run garbage collection"
 
 rebuild:
-	darwin-rebuild switch --flake .#mac-10
+	sudo darwin-rebuild switch --flake .#mac-10
 
 update:
 	nix flake update
 
 check:
-	darwin-rebuild check --flake .#mac-10
+	sudo darwin-rebuild check --flake .#mac-10
 
 gc:
 	nix-collect-garbage -d
