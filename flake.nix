@@ -140,6 +140,8 @@
       # Enable fingerprint authentication for sudo commands
       security.pam.services.sudo_local.touchIdAuth = true;
 
+      system.primaryUser = "alex";
+
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
 
