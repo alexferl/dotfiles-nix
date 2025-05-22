@@ -110,13 +110,26 @@
         };
       };
 
-      # Necessary for using flakes on this system.
-      nix.settings.experimental-features = "nix-command flakes";
+      nix = {
+        settings = {
+          # Necessary for using flakes on this system.
+          experimental-features = "nix-command flakes";
+          trusted-users = [ "alex" ];
+        };
+        gc = {
+          automatic = true;
+          interval = { Weekday = 0; Hour = 2; Minute = 0; };
+          options = "--delete-older-than 30d";
+        };
+      };
 
-      # allowUnfree is required to install some packages that are not "free" software.
-      nixpkgs.config.allowUnfree = true;
-
-      nixpkgs.hostPlatform = "aarch64-darwin";
+      nixpkgs = {
+        config = {
+         # allowUnfree is required to install some packages that are not "free" software.
+        allowUnfree = true;
+        };
+        hostPlatform = "aarch64-darwin";
+      };
 
       # Create /etc/zshrc that loads the nix-darwin environment.
       programs.zsh = {
@@ -127,35 +140,44 @@
       # Enable fingerprint authentication for sudo commands
       security.pam.services.sudo_local.touchIdAuth = true;
 
-      system.primaryUser = "alex";
+      system = {
+        primaryUser = "alex";
 
-      # Set Git commit hash for darwin-version.
-      system.configurationRevision = self.rev or self.dirtyRev or null;
+        # Set Git commit hash for darwin-version.
+        configurationRevision = self.rev or self.dirtyRev or null;
 
-      # Used for backwards compatibility, please read the changelog before changing.
-      # $ darwin-rebuild changelog
-      system.stateVersion = 6;
+        # Used for backwards compatibility, please read the changelog before changing.
+        # $ darwin-rebuild changelog
+        stateVersion = 6;
 
-      system.defaults = {
-        dock.autohide  = true;
-        dock.magnification = false;
-        dock.mineffect = "genie";
-        dock.mru-spaces = false; # Most Recently Used spaces.
-        dock.show-recents = false;
+        defaults = {
+          dock = {
+            autohide  = true;
+            magnification = false;
+            mineffect = "genie";
+            mru-spaces = false; # Most Recently Used spaces.
+            show-recents = false;
+          };
 
-        finder.AppleShowAllExtensions = true;
-        finder.FXPreferredViewStyle = "Nlsv"; # list view. https://macos-defaults.com/finder/fxpreferredviewstyle.html
-        finder.ShowPathbar = true; # Show path bar in Finder
+          finder = {
+            AppleShowAllExtensions = true;
+            FXPreferredViewStyle = "Nlsv"; # list view. https://macos-defaults.com/finder/fxpreferredviewstyle.html
+            ShowPathbar = true; # Show path bar in Finder
+          };
 
-        loginwindow.GuestEnabled  = false;
+          loginwindow.GuestEnabled  = false;
 
-        NSGlobalDomain."com.apple.sound.beep.volume" = 0.0;
-        NSGlobalDomain.AppleInterfaceStyle = "Dark";
-        NSGlobalDomain.ApplePressAndHoldEnabled = false;
-        NSGlobalDomain.InitialKeyRepeat = 15;
-        NSGlobalDomain.KeyRepeat = 2;
+          NSGlobalDomain = {
+            "com.apple.sound.beep.volume" = 0.0;
+            "com.apple.sound.beep.feedback" = 0;
+            AppleInterfaceStyle = "Dark";
+            ApplePressAndHoldEnabled = false;
+            InitialKeyRepeat = 15;
+            KeyRepeat = 2;
+          };
 
-        screencapture.location = "~/Pictures";
+          screencapture.location = "~/Pictures";
+        };
       };
     };
   in
