@@ -5,30 +5,9 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
-    homebrew-core = {
-      url = "github:homebrew/homebrew-core";
-      flake = false;
-    };
-    homebrew-cask = {
-      url = "github:homebrew/homebrew-cask";
-      flake = false;
-    };
-    homebrew-bundle = {
-      url = "github:homebrew/homebrew-bundle";
-      flake = false;
-    };
-    homebrew-services = {
-      url = "github:homebrew/homebrew-services";
-      flake = false;
-    };
-    pulumi-tap = {
-      url = "github:pulumi/homebrew-tap";
-      flake = false;
-    };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, homebrew-services, pulumi-tap }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs }:
   let
     configuration = { pkgs, ... }: {
       environment = {
@@ -82,18 +61,23 @@
       homebrew = {
         enable = true;
 
-         brews = [
-           "gnu-getopt"
-           "gnu-sed"
-           "gnu-tar"
-           "libpq"
-           "poetry"
-           "pre-commit"
-           "pulumi/tap/pulumi"
-           "python@3.10"
-           "rust"
-           "watch"
-         ];
+        taps = [
+          "homebrew/cask"
+          "pulumi/tap"
+        ];
+
+        brews = [
+          "gnu-getopt"
+          "gnu-sed"
+          "gnu-tar"
+          "libpq"
+          "poetry"
+          "pre-commit"
+          "pulumi/tap/pulumi"
+          "python@3.10"
+          "rust"
+          "watch"
+        ];
 
         casks = [
           "1password"
@@ -119,9 +103,11 @@
           "yaak"
         ];
 
-        onActivation.cleanup = "zap";
-        onActivation.autoUpdate = true;
-        onActivation.upgrade = true;
+        onActivation = {
+          autoUpdate = true;
+          upgrade = true;
+          cleanup = "zap";
+        };
       };
 
       # Necessary for using flakes on this system.
@@ -177,24 +163,6 @@
     darwinConfigurations."mac-10" = nix-darwin.lib.darwinSystem {
       modules = [
         configuration
-        nix-homebrew.darwinModules.nix-homebrew
-        {
-          nix-homebrew = {
-            enable = true;
-            enableRosetta = true;
-            user = "alex";
-
-            taps = {
-              "homebrew/homebrew-core" = homebrew-core;
-              "homebrew/homebrew-bundle" = homebrew-bundle;
-              "homebrew/homebrew-cask" = homebrew-cask;
-              "homebrew/homebrew-services" = homebrew-services;
-              "pulumi/tap" = pulumi-tap;
-            };
-
-            mutableTaps = true;
-          };
-        }
       ];
     };
   };
