@@ -111,22 +111,22 @@
       };
 
       nix = {
-        settings = {
-          # Necessary for using flakes on this system.
-          experimental-features = "nix-command flakes";
-          trusted-users = [ "alex" ];
-        };
         gc = {
           automatic = true;
           interval = { Weekday = 0; Hour = 2; Minute = 0; };
           options = "--delete-older-than 30d";
         };
+        settings = {
+          # Necessary for using flakes on this system.
+          experimental-features = "nix-command flakes";
+          trusted-users = [ "alex" ];
+        };
       };
 
       nixpkgs = {
         config = {
-         # allowUnfree is required to install some packages that are not "free" software.
-        allowUnfree = true;
+          # allowUnfree is required to install some packages that are not "free" software.
+          allowUnfree = true;
         };
         hostPlatform = "aarch64-darwin";
       };
