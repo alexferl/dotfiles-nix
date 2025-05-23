@@ -131,10 +131,14 @@
         hostPlatform = "aarch64-darwin";
       };
 
-      # Create /etc/zshrc that loads the nix-darwin environment.
-      programs.zsh = {
-        enableCompletion = true;
-        enableSyntaxHighlighting = true;
+      programs = {
+        zsh = {
+          # Enable zsh completion for all interactive zsh shells.
+          enableCompletion = true;
+
+          # Enable zsh-syntax-highlighting.
+          enableSyntaxHighlighting = true;
+        };
       };
 
       # Enable fingerprint authentication for sudo commands
@@ -151,32 +155,107 @@
         stateVersion = 6;
 
         defaults = {
+          alf = {
+            # Allows any downloaded Application that has been signed to accept incoming requests.
+            # 0 = disabled 1 = enabled
+            allowdownloadsignedenabled = 1;
+            # Enable the internal firewall to prevent unauthorised applications, programs and services from
+            # accepting incoming connections.
+            # 0 = disabled 1 = enabled 2 = blocks all connections except for essential services
+            globalstate = 1;
+          };
+
           dock = {
+            # Whether to automatically hide and show the dock.
             autohide  = true;
+
+            # Magnify icon on hover.
             magnification = false;
+
+            # Set the minimize/maximize window effect.
+            # "genie", "suck", "scale"
             mineffect = "genie";
-            mru-spaces = false; # Most Recently Used spaces.
+
+            # Whether to automatically rearrange spaces based on most recent use.
+            mru-spaces = false;
+
+            # Persistent applications, spacers, files, and folders in the dock.
+            persistent-apps = [
+              {
+                app = "/Applications/iTerm.app";
+              }
+              {
+                app = "/Users/alex/Applications/IntelliJ IDEA Ultimate.app";
+              }
+              {
+                app = "/Applications/Google Chrome.app";
+              }
+              {
+                app = "/Applications/Slack.app";
+              }
+              {
+                app = "/Applications/Signal.app";
+              }
+              {
+                app = "/Applications/TIDAL.app";
+              }
+              {
+                app = "/System/Applications/System Settings.app";
+              }
+            ];
+            # TODO when this is merged: https://github.com/nix-darwin/nix-darwin/pull/1431
+            # Persistent folders in the dock.
+            #persistent-others = [
+            #  "/Users/alex"
+            #  "/Applications"
+            #];
+            # Show recent applications in the dock.
             show-recents = false;
           };
 
           finder = {
+            # Whether to show all file extensions in Finder.
             AppleShowAllExtensions = true;
-            FXPreferredViewStyle = "Nlsv"; # list view. https://macos-defaults.com/finder/fxpreferredviewstyle.html
-            ShowPathbar = true; # Show path bar in Finder
+
+            # Whether to always show hidden files.
+            AppleShowAllFiles = true;
+
+            # Change the default finder view.
+            # "icnv" = Icon view, "Nlsv" = List view, "clmv" = Column View, "Flwv" = Gallery View
+            FXPreferredViewStyle = "Nlsv";
+
+            # Show path breadcrumbs in finder windows.
+            ShowPathbar = true;
           };
 
-          loginwindow.GuestEnabled  = false;
+          loginwindow = {
+            # Allow users to login to the machine as guests using the Guest account.
+            GuestEnabled  = false;
+          };
 
           NSGlobalDomain = {
-            "com.apple.sound.beep.volume" = 0.0;
+            # Make a feedback sound when the system volume changed. This setting accepts the integers 0 or 1.
             "com.apple.sound.beep.feedback" = 0;
+
+            # Sets the beep/alert volume level from 0.000 (muted) to 1.000 (100% volume).
+            "com.apple.sound.beep.volume" = 0.0;
+
             AppleInterfaceStyle = "Dark";
+
+            # Whether to enable the press-and-hold feature.
             ApplePressAndHoldEnabled = false;
+
+            # This sets how long you must hold down the key before it starts repeating.
             InitialKeyRepeat = 15;
+
+            # This sets how fast it repeats once it starts.
             KeyRepeat = 2;
           };
 
-          screencapture.location = "~/Pictures";
+          screencapture = {
+            # The filesystem path to which screencaptures should be written.
+            location = "~/Pictures";
+          };
         };
       };
     };
