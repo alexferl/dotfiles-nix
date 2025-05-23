@@ -22,6 +22,9 @@
         };
 
         systemPath = [
+          # Homebrew paths
+          "/opt/homebrew/bin"
+          "/opt/homebrew/sbin"
           # GNU utils
           "/opt/homebrew/opt/gnu-getopt/bin"
           "/opt/homebrew/opt/gnu-sed/libexec/gnubin"
