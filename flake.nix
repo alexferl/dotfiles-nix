@@ -74,6 +74,7 @@
           "gnu-sed"
           "gnu-tar"
           "libpq"
+          "mas"
           "poetry"
           "pre-commit"
           "pulumi/tap/pulumi"
@@ -105,6 +106,10 @@
           "vlc"
           "yaak"
         ];
+
+        masApps = {
+          WireGuard = 1451685025;
+        };
 
         onActivation = {
           autoUpdate = true;
