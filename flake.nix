@@ -48,7 +48,6 @@
             pkgs.neovim
             pkgs.neofetch
             pkgs.nodejs_22
-            pkgs.odin
             pkgs.oh-my-zsh
             pkgs.pstree
             pkgs.ssh-copy-id
@@ -74,7 +73,9 @@
           "gnu-sed"
           "gnu-tar"
           "libpq"
+          "llvm"
           "mas"
+          "odin"
           "poetry"
           "pre-commit"
           "pulumi/tap/pulumi"
