@@ -88,6 +88,7 @@
           "1password"
           "1password-cli"
           "balenaetcher"
+          "crossover"
           "dbeaver-community"
           "docker"
           "gimp"
