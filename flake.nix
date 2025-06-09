@@ -34,7 +34,9 @@
         ];
 
         variables = {
+          EDITOR = "nvim";
           KUBE_EDITOR = "nvim";
+          VISUAL = "nvim";
         };
 
         systemPackages =
