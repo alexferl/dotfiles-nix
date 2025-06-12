@@ -55,6 +55,7 @@
             pkgs.ssh-copy-id
             pkgs.tree
             pkgs.uv
+            pkgs.wget
           ];
       };
 
