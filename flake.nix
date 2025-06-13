@@ -53,7 +53,6 @@
         enable = true;
 
         taps = [
-          "homebrew/cask"
           "pulumi/tap"
         ];
 
