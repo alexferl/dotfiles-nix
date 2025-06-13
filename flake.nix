@@ -41,21 +41,7 @@
 
         systemPackages =
           [
-            pkgs.curl
-            pkgs.go
-            pkgs.golangci-lint
-            pkgs.htop
-            pkgs.httpie
-            pkgs.jq
-            pkgs.neovim
-            pkgs.neofetch
-            pkgs.nodejs_22
             pkgs.oh-my-zsh
-            pkgs.pstree
-            pkgs.ssh-copy-id
-            pkgs.tree
-            pkgs.uv
-            pkgs.wget
           ];
       };
 
@@ -72,19 +58,33 @@
         ];
 
         brews = [
+          "curl"
           "gnu-getopt"
           "gnu-sed"
           "gnu-tar"
+          "htop"
           "libpq"
           "llvm"
+          "go"
+          "golangci-lint"
+          "httpie"
+          "jq"
           "mas"
+          "neovim"
+          "neofetch"
+          "node@22"
           "odin"
           "poetry"
           "pre-commit"
+          "pstree"
           "pulumi/tap/pulumi"
           "python@3.10"
           "rust"
+          "ssh-copy-id"
+          "tree"
+          "uv"
           "watch"
+          "wget"
         ];
 
         casks = [
