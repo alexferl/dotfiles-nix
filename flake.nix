@@ -41,6 +41,7 @@
 
         systemPackages =
           [
+            pkgs.nodejs_22
             pkgs.oh-my-zsh
           ];
       };
@@ -71,7 +72,6 @@
           "mas"
           "neovim"
           "neofetch"
-          "node@22"
           "odin"
           "poetry"
           "pre-commit"
