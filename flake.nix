@@ -155,6 +155,15 @@
       # Enable fingerprint authentication for sudo commands
       security.pam.services.sudo_local.touchIdAuth = true;
 
+      networking = {
+        applicationFirewall = {
+          enable = true;
+          allowSigned = true;
+          allowSignedApp = true;
+          blockAllIncoming = true;
+        };
+      };
+
       system = {
         primaryUser = "alex";
 
@@ -166,16 +175,6 @@
         stateVersion = 6;
 
         defaults = {
-          alf = {
-            # Allows any downloaded Application that has been signed to accept incoming requests.
-            # 0 = disabled 1 = enabled
-            allowdownloadsignedenabled = 1;
-            # Enable the internal firewall to prevent unauthorised applications, programs and services from
-            # accepting incoming connections.
-            # 0 = disabled 1 = enabled 2 = blocks all connections except for essential services
-            globalstate = 1;
-          };
-
           dock = {
             # Whether to automatically hide and show the dock.
             autohide  = true;
