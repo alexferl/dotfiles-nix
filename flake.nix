@@ -58,6 +58,7 @@
         ];
 
         brews = [
+          "coreutils"
           "curl"
           "gnu-getopt"
           "gnu-sed"
@@ -89,6 +90,7 @@
         casks = [
           "1password"
           "1password-cli"
+          "applepi-baker"
           "balenaetcher"
           "dbeaver-community"
           "gimp"
