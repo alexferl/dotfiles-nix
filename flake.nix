@@ -12,8 +12,8 @@
     configuration = { pkgs, ... }: {
       environment = {
         extraInit = ''
-          source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-          source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+          source "/opt/homebrew/Caskroom/gcloud-cli/latest/google-cloud-sdk/path.zsh.inc"
+          source "/opt/homebrew/Caskroom/gcloud-cli/latest/google-cloud-sdk/completion.zsh.inc"
         '';
 
         shellAliases = {
@@ -63,13 +63,13 @@
           "gnu-getopt"
           "gnu-sed"
           "gnu-tar"
-          "htop"
-          "libpq"
-          "llvm"
           "go"
           "golangci-lint"
+          "htop"
           "httpie"
           "jq"
+          "libpq"
+          "llvm"
           "mas"
           "neovim"
           "neofetch"
@@ -93,9 +93,9 @@
           "applepi-baker"
           "balenaetcher"
           "dbeaver-community"
+          "gcloud-cli"
           "gimp"
           "google-chrome"
-          "google-cloud-sdk"
           "iterm2"
           "jetbrains-toolbox"
           "karabiner-elements"
