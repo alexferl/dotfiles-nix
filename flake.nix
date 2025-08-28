@@ -71,6 +71,7 @@
           "libpq"
           "llvm"
           "mas"
+          "mkcert"
           "neovim"
           "neofetch"
           "odin"
