@@ -55,6 +55,7 @@
 
         taps = [
           "pulumi/tap"
+          "sass/sass"
         ];
 
         brews = [
@@ -81,6 +82,7 @@
           "pulumi/tap/pulumi"
           "python@3.10"
           "rust"
+          "sass/sass/sass"
           "ssh-copy-id"
           "tree"
           "uv"
@@ -106,6 +108,7 @@
           "rustdesk"
           "signal"
           "slack"
+          "spotify"
           "steam"
           "tidal"
           "twingate"
