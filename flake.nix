@@ -66,6 +66,7 @@
           "gnu-tar"
           "go"
           "golangci-lint"
+          "gopls"
           "htop"
           "httpie"
           "jq"
