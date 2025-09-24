@@ -59,6 +59,7 @@
         ];
 
         brews = [
+          "awscli"
           "coreutils"
           "curl"
           "gnu-getopt"
