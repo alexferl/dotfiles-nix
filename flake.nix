@@ -112,7 +112,6 @@
           "slack"
           "spotify"
           "steam"
-          "tidal"
           "twingate"
           "vlc"
           "yaak"
@@ -215,7 +214,7 @@
                 app = "/Applications/Signal.app";
               }
               {
-                app = "/Applications/TIDAL.app";
+                app = "/Applications/Spotify.app";
               }
               {
                 app = "/System/Applications/System Settings.app";
