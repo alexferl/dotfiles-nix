@@ -62,6 +62,7 @@
           "awscli"
           "coreutils"
           "curl"
+          "glab"
           "gnu-getopt"
           "gnu-sed"
           "gnu-tar"
