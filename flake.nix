@@ -55,7 +55,6 @@
 
         taps = [
           "pulumi/tap"
-          "sass/sass"
         ];
 
         brews = [
@@ -85,7 +84,6 @@
           "pulumi/tap/pulumi"
           "python@3.10"
           "rust"
-          "sass/sass/sass"
           "ssh-copy-id"
           "tree"
           "uv"
@@ -223,12 +221,11 @@
                 app = "/System/Applications/System Settings.app";
               }
             ];
-            # TODO when this is merged: https://github.com/nix-darwin/nix-darwin/pull/1431
             # Persistent folders in the dock.
-            #persistent-others = [
-            #  "/Users/alex"
-            #  "/Applications"
-            #];
+            persistent-others = [
+               { folder = { path = "/Users/alex"; displayas = "folder"; showas = "list"; }; }
+               { folder = { path = "/Applications"; displayas = "folder"; showas = "list"; }; }
+            ];
             # Show recent applications in the dock.
             show-recents = false;
           };
