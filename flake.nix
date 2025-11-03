@@ -94,6 +94,7 @@
         casks = [
           "1password"
           "1password-cli"
+          "ableton-live-intro"
           "applepi-baker"
           "balenaetcher"
           "dbeaver-community"
