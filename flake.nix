@@ -58,6 +58,7 @@
         ];
 
         brews = [
+          "aria2"
           "awscli"
           "coreutils"
           "curl"
