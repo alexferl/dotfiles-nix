@@ -133,6 +133,20 @@
         };
       };
 
+      launchd.daemons.limit-maxfiles = {
+        serviceConfig = {
+          Label = "limit.maxfiles";
+          ProgramArguments = [
+            "launchctl"
+            "limit"
+            "maxfiles"
+            "10240"
+            "unlimited"
+          ];
+          RunAtLoad = true;
+        };
+      };
+
       nix = {
         gc = {
           automatic = true;
