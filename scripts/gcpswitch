@@ -1,0 +1,32 @@
+#!/usr/bin/env zsh
+
+if [ $# -eq 0 ]; then
+  gcloud config configurations list
+  exit 0
+fi
+
+project=$1
+env=${2:-dev}
+config_name="${project}-${env}"
+
+if ! gcloud config configurations list --format='value(name)' | grep -q "^${config_name}$"; then
+  echo "Error: Configuration '$config_name' not found"
+  gcloud config configurations list --format='table(name)'
+  exit 1
+fi
+
+echo "Switching to ${config_name}..."
+gcloud config configurations activate "${config_name}" > /dev/null 2>&1
+
+account=$(gcloud config get-value account 2>/dev/null)
+project_id=$(gcloud config get-value project 2>/dev/null)
+
+if ! gcloud auth list --filter="account=${account}" --format='value(account)' 2>/dev/null | grep -q "${account}"; then
+  echo "Account ${account} not authenticated. Starting login..."
+  gcloud auth login "${account}" --update-adc
+else
+  echo "Already authenticated as ${account}"
+  gcloud auth application-default set-quota-project "${project_id}" > /dev/null 2>&1
+fi
+
+gcloud config configurations list --filter="IS_ACTIVE=True"

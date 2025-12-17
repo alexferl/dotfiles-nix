@@ -31,6 +31,8 @@
           "/opt/homebrew/opt/gnu-tar/libexec/gnubin"
           # PostgreSQL utils
           "/opt/homebrew/opt/libpq/bin"
+          # Custom scripts
+          "/Users/alex/dev/nix/dotfiles-nix/scripts"
         ];
 
         variables = {
@@ -41,7 +43,6 @@
 
         systemPackages =
           [
-            pkgs.nodejs_22
             pkgs.oh-my-zsh
           ];
       };
@@ -78,9 +79,10 @@
           "llvm"
           "mas"
           "mkcert"
-          "mongodb-community"
+          "mongodb/brew/mongodb-community"
           "neovim"
           "neofetch"
+          "node"
           "odin"
           "poetry"
           "pre-commit"
@@ -221,7 +223,7 @@
                 app = "/Applications/iTerm.app";
               }
               {
-                app = "/Users/alex/Applications/IntelliJ IDEA Ultimate.app";
+                app = "/Users/alex/Applications/IntelliJ IDEA.app";
               }
               {
                 app = "/Applications/Google Chrome.app";
