@@ -19,14 +19,7 @@ echo "Switching to ${config_name}..."
 gcloud config configurations activate "${config_name}" > /dev/null 2>&1
 
 account=$(gcloud config get-value account 2>/dev/null)
-project_id=$(gcloud config get-value project 2>/dev/null)
 
-if ! gcloud auth list --filter="account=${account}" --format='value(account)' 2>/dev/null | grep -q "${account}"; then
-  echo "Account ${account} not authenticated. Starting login..."
-  gcloud auth login "${account}" --update-adc
-else
-  echo "Already authenticated as ${account}"
-  gcloud auth application-default set-quota-project "${project_id}" > /dev/null 2>&1
-fi
+gcloud auth login "${account}" --update-adc --brief
 
 gcloud config configurations list --filter="IS_ACTIVE=True"
