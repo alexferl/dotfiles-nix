@@ -61,7 +61,6 @@
 
         brews = [
           "aria2"
-          "awscli"
           "coreutils"
           "curl"
           "ffmpeg"
@@ -103,6 +102,7 @@
           "applepi-baker"
           "audacity"
           "balenaetcher"
+          "crossover"
           "dbeaver-community"
           "gcloud-cli"
           "gimp"
