@@ -102,6 +102,7 @@
           "applepi-baker"
           "audacity"
           "balenaetcher"
+          "claude-code"
           "crossover"
           "dbeaver-community"
           "gcloud-cli"
