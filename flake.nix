@@ -112,6 +112,7 @@
           "iterm2"
           "jetbrains-toolbox"
           "karabiner-elements"
+          "midi-monitor"
           "orbstack"
           "raspberry-pi-imager"
           "retroarch-metal"
