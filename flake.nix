@@ -93,6 +93,7 @@
           "uv"
           "watch"
           "wget"
+          "ykman"
         ];
 
         casks = [
