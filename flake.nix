@@ -119,7 +119,6 @@
           "retroarch-metal"
           "signal"
           "slack"
-          "spotify"
           "steam"
           "telegram"
           "twingate"
@@ -238,7 +237,7 @@
                 app = "/Applications/Signal.app";
               }
               {
-                app = "/Applications/Spotify.app";
+                app = "/System/Applications/Music.app";
               }
               {
                 app = "/System/Applications/System Settings.app";
