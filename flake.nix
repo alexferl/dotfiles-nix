@@ -83,6 +83,7 @@
           "neofetch"
           "node"
           "odin"
+          "openssh"
           "pre-commit"
           "pstree"
           "pulumi/tap/pulumi"
