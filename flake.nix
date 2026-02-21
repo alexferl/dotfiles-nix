@@ -67,6 +67,7 @@
           "gnu-getopt"
           "gnu-sed"
           "gnu-tar"
+          "gnupg"
           "go"
           "golangci-lint"
           "gopls"
@@ -84,6 +85,7 @@
           "node"
           "odin"
           "openssh"
+          "pinentry-mac"
           "pre-commit"
           "pstree"
           "pulumi/tap/pulumi"
@@ -95,6 +97,7 @@
           "watch"
           "wget"
           "ykman"
+          "yubikey-personalization"
         ];
 
         casks = [
