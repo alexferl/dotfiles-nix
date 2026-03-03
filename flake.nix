@@ -22,16 +22,13 @@
         };
 
         systemPath = [
-          # Homebrew paths
           "/opt/homebrew/bin"
           "/opt/homebrew/sbin"
-          # GNU utils
+          "/opt/homebrew/opt/curl/bin"
           "/opt/homebrew/opt/gnu-getopt/bin"
           "/opt/homebrew/opt/gnu-sed/libexec/gnubin"
           "/opt/homebrew/opt/gnu-tar/libexec/gnubin"
-          # PostgreSQL utils
           "/opt/homebrew/opt/libpq/bin"
-          # Custom scripts
           "/Users/alex/dev/nix/dotfiles-nix/scripts"
         ];
 
@@ -110,6 +107,7 @@
           "claude-code"
           "crossover"
           "dbeaver-community"
+          "firefox"
           "gcloud-cli"
           "gimp"
           "google-chrome"
