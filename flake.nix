@@ -58,6 +58,7 @@
 
         brews = [
           "aria2"
+          "cloudflared"
           "coreutils"
           "curl"
           "ffmpeg"
