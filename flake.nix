@@ -22,6 +22,7 @@
         };
 
         systemPath = [
+          "$HOME/go/bin"
           "/opt/homebrew/bin"
           "/opt/homebrew/sbin"
           "/opt/homebrew/opt/curl/bin"
