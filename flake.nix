@@ -53,7 +53,6 @@
         enable = true;
 
         taps = [
-          "mongodb/brew"
           "pulumi/tap"
         ];
 
@@ -78,7 +77,6 @@
           "llvm"
           "mas"
           "mkcert"
-          "mongodb/brew/mongodb-community"
           "neovim"
           "neofetch"
           "node"
