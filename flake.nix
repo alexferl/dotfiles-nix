@@ -291,7 +291,7 @@
           };
 
           screencapture = {
-            # The filesystem path to which screencaptures should be written.
+            # The filesystem path to which screen captures should be written.
             location = "~/Pictures";
           };
         };
