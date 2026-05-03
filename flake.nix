@@ -22,6 +22,8 @@
         };
 
         systemPath = [
+          "$HOME/.local/bin"
+          "$HOME/dev/nix/dotfiles-nix/scripts"
           "$HOME/go/bin"
           "/opt/homebrew/bin"
           "/opt/homebrew/sbin"
@@ -30,7 +32,6 @@
           "/opt/homebrew/opt/gnu-sed/libexec/gnubin"
           "/opt/homebrew/opt/gnu-tar/libexec/gnubin"
           "/opt/homebrew/opt/libpq/bin"
-          "/Users/alex/dev/nix/dotfiles-nix/scripts"
         ];
 
         variables = {
@@ -67,7 +68,6 @@
           "gnu-tar"
           "gnupg"
           "go"
-          "golangci-lint"
           "gopls"
           "htop"
           "httpie"
@@ -81,8 +81,10 @@
           "neofetch"
           "node"
           "odin"
+          "openjdk@21"
           "openssh"
           "pinentry-mac"
+          "pnpm@10"
           "pre-commit"
           "pstree"
           "pulumi/tap/pulumi"
