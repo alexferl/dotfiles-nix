@@ -84,7 +84,7 @@
           "openjdk@21"
           "openssh"
           "pinentry-mac"
-          "pnpm@10"
+          "pnpm"
           "pre-commit"
           "pstree"
           "pulumi/tap/pulumi"
@@ -226,7 +226,7 @@
                 app = "/Applications/iTerm.app";
               }
               {
-                app = "/Users/alex/Applications/IntelliJ IDEA.app";
+                app = "/Users/alex/Applications/IntelliJ IDEA 2026.1.1.app";
               }
               {
                 app = "/Applications/Google Chrome.app";
