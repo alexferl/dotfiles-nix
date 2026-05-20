@@ -226,7 +226,7 @@
                 app = "/Applications/iTerm.app";
               }
               {
-                app = "/Users/alex/Applications/IntelliJ IDEA 2026.1.1.app";
+                app = "/Users/alex/Applications/IntelliJ IDEA.app";
               }
               {
                 app = "/Applications/Google Chrome.app";
