@@ -38,6 +38,7 @@
           EDITOR = "nvim";
           KUBE_EDITOR = "nvim";
           VISUAL = "nvim";
+          CAPACITOR_ANDROID_STUDIO_PATH = "$HOME/Applications/Android Studio.app";
         };
 
         systemPackages =
