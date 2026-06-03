@@ -130,6 +130,7 @@
 
         masApps = {
           WireGuard = 1451685025;
+          Xcode = 497799835;
         };
 
         onActivation = {
