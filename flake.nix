@@ -55,7 +55,10 @@
         enable = true;
 
         taps = [
-          "pulumi/tap"
+          {
+            name = "pulumi/tap";
+            trusted = true;
+          }
         ];
 
         brews = [
