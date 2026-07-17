@@ -112,6 +112,7 @@
           "claude-code"
           "crossover"
           "dbeaver-community"
+          "filebot"
           "gcloud-cli"
           "gimp"
           "google-chrome"
