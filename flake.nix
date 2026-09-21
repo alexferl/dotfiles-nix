@@ -104,7 +104,6 @@
 
         casks = [
           "1password"
-          "1password-cli"
           "ableton-live-intro"
           "applepi-baker"
           "audacity"
@@ -128,6 +127,7 @@
           "steam"
           "telegram"
           "twingate"
+          "utm"
           "vlc"
           "yaak"
         ];
