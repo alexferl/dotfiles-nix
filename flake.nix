@@ -109,6 +109,7 @@
           "applepi-baker"
           "audacity"
           "balenaetcher"
+          "blender"
           "claude-code"
           "crossover"
           "dbeaver-community"
