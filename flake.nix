@@ -68,6 +68,7 @@
           "curl"
           "ffmpeg"
           "flatbuffers"
+          "gdtoolkit"
           "gnu-getopt"
           "gnu-sed"
           "gnu-tar"
