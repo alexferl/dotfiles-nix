@@ -69,6 +69,7 @@
           "ffmpeg"
           "flatbuffers"
           "gdtoolkit"
+          "glab"
           "gnu-getopt"
           "gnu-sed"
           "gnu-tar"
